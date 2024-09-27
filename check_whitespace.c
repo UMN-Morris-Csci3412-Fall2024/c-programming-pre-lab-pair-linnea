@@ -43,12 +43,6 @@ char const *strip(char const *str) {
   // Place the null terminator at the end of the result string.
   result[i-first_non_space] = '\0';
 
-  // free(i);
-  // free(last_non_space);
-  // free(first_non_space);
-  // free(size);
-  // free(num_spaces);
-
   return result;
 }
 
@@ -67,7 +61,9 @@ int is_clean(char const *str) {
   // greater than the second.
   int result = strcmp(str, cleaned);
 
-  free(cleaned);
+  if (cleaned != "") {
+      free((void *)cleaned); // Ensure we only free if it's not the static empty string
+  }
 
   return result == 0;
 }
