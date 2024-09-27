@@ -28,6 +28,11 @@ char const *strip(char const *str) {
   // consisted of nothing but spaces, so we'll return the
   // empty string.
   if (num_spaces >= size) {
+    free(size);
+    free(num_spaces);
+    free(first_non_space);
+    free(last_non_space);
+
     return "";
   }
 
@@ -42,6 +47,12 @@ char const *strip(char const *str) {
   }
   // Place the null terminator at the end of the result string.
   result[i-first_non_space] = '\0';
+
+  free(i);
+  free(last_non_space);
+  free(first_non_space);
+  free(size);
+  free(num_spaces);
 
   return result;
 }
