@@ -61,9 +61,9 @@ int is_clean(char const *str) {
   // greater than the second.
   int result = strcmp(str, cleaned);
 
-  if (cleaned != "") {
-      free((void *)cleaned); // Ensure we only free if it's not the static empty string
-  }
+
+  free((void *)cleaned);
+
 
   return result == 0;
 }
