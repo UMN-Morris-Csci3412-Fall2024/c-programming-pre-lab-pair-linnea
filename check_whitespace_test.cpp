@@ -7,7 +7,9 @@ TEST(strip, EmptyString) {
 }
 
 TEST(strip, NoWhitespace) {
-    ASSERT_STREQ("frog", strip("frog"));
+    char* result = strip("frog");
+    ASSERT_STREQ("frog", result);
+    free(result)
 }
 
 TEST(strip, WhitespaceOnFront) {
