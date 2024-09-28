@@ -13,15 +13,22 @@ TEST(strip, NoWhitespace) {
 }
 
 TEST(strip, WhitespaceOnFront) {
-    ASSERT_STREQ("frog", strip("   frog"));
+    char* result = strip("   frog");
+    ASSERT_STREQ("frog", result);
+    free(result);
 }
 
 TEST(strip, WhitespaceOnBack) {
-    ASSERT_STREQ("frog", strip("frog  "));
+    char* result = strip("frog  ");
+    ASSERT_STREQ("frog", strip(result));
+    free(result);
 }
 
 TEST(strip, WhitespaceOnBothEnds) {
-    ASSERT_STREQ("frog", strip("  frog     "));
+    char* result = strip("  frog     ");
+    ASSERT_STREQ("frog", result);
+    free(result);
+
 }
 
 TEST(is_clean, EmptyString) {
