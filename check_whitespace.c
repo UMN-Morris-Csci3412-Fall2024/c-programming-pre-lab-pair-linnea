@@ -61,8 +61,9 @@ int is_clean(char const *str) {
   // greater than the second.
   int result = strcmp(str, cleaned);
 
-  // if (cleaned[0] != '\0') { //way to check if string is not empty
-  // free(cleaned);
+  if (cleaned[0] != '\0') { //way to check if string is not empty
+  free(cleaned);
+  }
 
 
   return result == 0;
