@@ -20,7 +20,7 @@ TEST(strip, WhitespaceOnFront) {
 
 TEST(strip, WhitespaceOnBack) {
     char* result = strip("frog  ");
-    ASSERT_STREQ("frog", strip(result));
+    ASSERT_STREQ("frog", result);
     free(result);
 }
 
